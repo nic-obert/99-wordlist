@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>99 Wordlist</title>
+</head>
+<body>
+    <p id="list"></p>
+    <script>
+        const csv = require()
+
+        list = document.getElementById("list");
+        var client = new HttpClient();
+        client.get('https://nic-obert.github.io/99-wordlist/wordlist.csv', function(response) {
+            list.innerHTML = response;
+        });
+    </script>
+</body>
+</html>
