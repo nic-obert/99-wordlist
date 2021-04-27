@@ -2,7 +2,7 @@
 
 def load_list():
     with open('wordlist.csv', 'r') as file:
-        words = [word[:len(word)-2] for word in file.readlines()]
+        words = file.read().split(',')
     return words
 
 
@@ -15,6 +15,9 @@ def add_loop(words: list):
         if inp in words:
             print(f'Word {inp} is already in list')
             continue
+        if inp == '':
+            print('Cannot add empty word')
+            continue
         
         words.append(inp)
     
@@ -23,7 +26,8 @@ def add_loop(words: list):
 
 def write_list(words):
     with open('wordlist.csv', 'w') as file:
-        file.writelines([word + ',' for word in words])
+        for word in words:
+            file.write(word + ',')
 
 
 def main():
