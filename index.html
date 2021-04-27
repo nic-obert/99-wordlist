@@ -9,13 +9,14 @@
 <body>
     <p id="list"></p>
     <script>
-        const csv = require()
-
         list = document.getElementById("list");
-        var client = new HttpClient();
-        client.get('https://nic-obert.github.io/99-wordlist/wordlist.csv', function(response) {
-            list.innerHTML = response;
-        });
+    
+        fetch('https://nic-obert.github.io/99-wordlist/wordlist.csv')
+            .then(data => {
+                return data.text();
+            }).then(res => {
+                list.innerHTML = res;
+            });
     </script>
 </body>
 </html>
